@@ -1,14 +1,11 @@
 {
-  "name": "vererbungsquadrat_biologie",
+  "name": "vererbungsquadrat-biologie",
   "version": "1.0.0",
   "description": "A little website showing a table for biology mitose and dna",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "author": "FiTeKa",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "typescript": "^5.7.3"
   }
