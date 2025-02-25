@@ -24,15 +24,15 @@ function generateTable() {
     var parent1 = parent1Input.value.trim();
     var parent2 = parent2Input.value.trim();
     if (parent1 === '' || parent2 === '') {
-        alert('Please enter both parents');
+        alert('Bitte beiede Eltern eingeben');
         return;
     }
     if (parent1.length !== parent2.length) {
-        alert('Both parents must have the same length');
+        alert('Genomlängen der Eltern müssen gleich sein');
         return;
     }
     if (parent1.length % 2 !== 0 || parent2.length % 2 !== 0) {
-        alert('Both parents must have an even length');
+        alert('Genomlängen der Eltern müssen gerade sein');
         return;
     }
     var parent1Combinations = getCombinations(parent1);
