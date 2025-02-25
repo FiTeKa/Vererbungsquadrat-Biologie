@@ -48,7 +48,16 @@ function generateTable(){
     parent1Combinations.forEach((parent1Allele) => {
         table += `<tr><th>${parent1Allele}</th>`;
         parent2Combinations.forEach((parent2Allele) => {
-            table += `<td>${(parent1Allele + parent2Allele)}</td>`;
+            table += '<td>'
+            
+            let parent1AlleleSplited = parent1Allele.split('');
+            let parent2AlleleSplited = parent2Allele.split('');
+
+            for(let i = 0; i < parent1AlleleSplited.length; i++){
+                table += `${parent1AlleleSplited[i]}${parent2AlleleSplited[i]} `;
+            }
+            
+            table += '</td>';
         });
         table += '</tr>';
     });
