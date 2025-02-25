@@ -45,7 +45,13 @@ function generateTable() {
     parent1Combinations.forEach(function (parent1Allele) {
         table += "<tr><th>".concat(parent1Allele, "</th>");
         parent2Combinations.forEach(function (parent2Allele) {
-            table += "<td>".concat((parent1Allele + parent2Allele), "</td>");
+            table += '<td>';
+            var parent1AlleleSplited = parent1Allele.split('');
+            var parent2AlleleSplited = parent2Allele.split('');
+            for (var i = 0; i < parent1AlleleSplited.length; i++) {
+                table += "".concat(parent1AlleleSplited[i]).concat(parent2AlleleSplited[i], " ");
+            }
+            table += '</td>';
         });
         table += '</tr>';
     });
