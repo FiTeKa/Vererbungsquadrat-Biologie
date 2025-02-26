@@ -6,7 +6,7 @@ This repository contains resources and code related to the study of genetics and
 
 ### Online usage
 
-Open the webite under [https://fiteka.github.io/Vererbungsquadrat-Biologie/](https://fiteka.github.io/Vererbungsquadrat-Biologie/) and just start.
+Open the website under [https://fiteka.github.io/Vererbungsquadrat-Biologie/](https://fiteka.github.io/Vererbungsquadrat-Biologie/) and just start.
 
 ### Offline usage
 1. Download the Repo or 
