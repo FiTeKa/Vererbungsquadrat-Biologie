@@ -49,7 +49,7 @@ function generateTable() {
             var parent1AlleleSplited = parent1Allele.split('');
             var parent2AlleleSplited = parent2Allele.split('');
             for (var i = 0; i < parent1AlleleSplited.length; i++) {
-                table += getCombinationSorted(parent1AlleleSplited[i], parent2AlleleSplited[i]);
+                table += getAlleleCombination(parent1AlleleSplited[i], parent2AlleleSplited[i]);
             }
             table += '</td>';
         });
@@ -65,8 +65,25 @@ function getCombinations(alleles) {
     var restCombinations = getCombinations(alleles.slice(2));
     return __spreadArray(__spreadArray([], restCombinations.map(function (combination) { return firstPair[0] + combination; }), true), restCombinations.map(function (combination) { return firstPair[1] + combination; }), true);
 }
-function getCombinationSorted(parent1, parent2) {
+function getAlleleCombination(parent1, parent2) {
+    if (getPrettierCombinationsCheckBoxVaule()) {
+        return getAlleleCombinationSorted(parent1, parent2);
+    }
+    return "".concat(parent1).concat(parent2);
+}
+function getAlleleCombinationSorted(parent1, parent2) {
     var alleles = [parent1, parent2];
     alleles.sort();
     return alleles.join('');
+}
+function getPrettierCombinationsCheckBoxVaule() {
+    console.log(getPrettierCombinationsCheckBox().checked);
+    return getPrettierCombinationsCheckBox().checked;
+}
+var prettierCombinations;
+function getPrettierCombinationsCheckBox() {
+    if (prettierCombinations)
+        return prettierCombinations;
+    prettierCombinations = document.getElementById('prettierCombinations');
+    return prettierCombinations;
 }

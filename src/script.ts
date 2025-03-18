@@ -54,7 +54,7 @@ function generateTable(){
             let parent2AlleleSplited = parent2Allele.split('');
 
             for(let i = 0; i < parent1AlleleSplited.length; i++){
-                table += getCombinationSorted(parent1AlleleSplited[i], parent2AlleleSplited[i]);
+                table += getAlleleCombination(parent1AlleleSplited[i], parent2AlleleSplited[i]);
             }
             
             table += '</td>';
@@ -76,9 +76,30 @@ function getCombinations(alleles: string): string[] {
     ];
 }
 
-function getCombinationSorted(parent1: string, parent2: string): string{
+
+
+function getAlleleCombination(parent1: string, parent2: string): string{
+    if(getPrettierCombinationsCheckBoxVaule()){
+        return getAlleleCombinationSorted(parent1, parent2);
+    }
+    return `${parent1}${parent2}`;
+}
+
+function getAlleleCombinationSorted(parent1: string, parent2: string): string{
     const alleles = [parent1, parent2];
     alleles.sort();
 
     return alleles.join('');
+}
+
+function getPrettierCombinationsCheckBoxVaule(){
+    console.log(getPrettierCombinationsCheckBox().checked);
+    return getPrettierCombinationsCheckBox().checked;
+}
+
+let prettierCombinations: HTMLInputElement;
+function getPrettierCombinationsCheckBox(): HTMLInputElement{
+    if(prettierCombinations) return prettierCombinations;
+    prettierCombinations = document.getElementById('prettierCombinations') as HTMLInputElement;
+    return prettierCombinations;
 }
