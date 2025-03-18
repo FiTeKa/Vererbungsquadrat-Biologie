@@ -49,7 +49,7 @@ function generateTable() {
             var parent1AlleleSplited = parent1Allele.split('');
             var parent2AlleleSplited = parent2Allele.split('');
             for (var i = 0; i < parent1AlleleSplited.length; i++) {
-                table += "".concat(parent1AlleleSplited[i]).concat(parent2AlleleSplited[i], " ");
+                table += getCombinationSorted(parent1AlleleSplited[i], parent2AlleleSplited[i]);
             }
             table += '</td>';
         });
@@ -64,4 +64,9 @@ function getCombinations(alleles) {
     var firstPair = alleles.slice(0, 2);
     var restCombinations = getCombinations(alleles.slice(2));
     return __spreadArray(__spreadArray([], restCombinations.map(function (combination) { return firstPair[0] + combination; }), true), restCombinations.map(function (combination) { return firstPair[1] + combination; }), true);
+}
+function getCombinationSorted(parent1, parent2) {
+    var alleles = [parent1, parent2];
+    alleles.sort();
+    return alleles.join('');
 }
