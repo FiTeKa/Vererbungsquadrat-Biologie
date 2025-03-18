@@ -54,7 +54,7 @@ function generateTable(){
             let parent2AlleleSplited = parent2Allele.split('');
 
             for(let i = 0; i < parent1AlleleSplited.length; i++){
-                table += `${parent1AlleleSplited[i]}${parent2AlleleSplited[i]} `;
+                table += getCombinationSorted(parent1AlleleSplited[i], parent2AlleleSplited[i]);
             }
             
             table += '</td>';
@@ -74,4 +74,11 @@ function getCombinations(alleles: string): string[] {
         ...restCombinations.map((combination) => firstPair[0] + combination),
         ...restCombinations.map((combination) => firstPair[1] + combination)
     ];
+}
+
+function getCombinationSorted(parent1: string, parent2: string): string{
+    const alleles = [parent1, parent2];
+    alleles.sort();
+
+    return alleles.join('');
 }
